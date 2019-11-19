@@ -2,22 +2,22 @@
 
 md5 签名方式
 ```php
-use Foccy\Alipay\Signer\MD5Signer;
+use Cxb\Alipay\Signer\MD5Signer;
 $md5Signer = new MD5Signer('a2d9bm4jfk0slemvpaq23');
 $alipay->addSigner($md5Signer);
 ```
 
 rsa 签名方式
 ```php
-use Foccy\Alipay\Signer\RSASigner;
+use Cxb\Alipay\Signer\RSASigner;
 $rsaSigner = new RSASigner(__DIR__ . '/my_private_key', __DIR__ . '/alipay_pub_key');
 $alipay->addSigner($rsaSigner);
 ```
 
 生成 Alipay 实例
 ```php
-use Foccy\Alipay\Alipay;
-use Foccy\Alipay\Signer\SignerInterface;
+use Cxb\Alipay\Alipay;
+use Cxb\Alipay\Signer\SignerInterface;
 
 // 生成 Alipay 实例，签名方式包括`md5`和`rsa`，默认`md5`方式签名
 $alipay = Alipay::create('2008...', [$md5Signer, $rsaSigner], SignerInterface::TYPE_MD5);
